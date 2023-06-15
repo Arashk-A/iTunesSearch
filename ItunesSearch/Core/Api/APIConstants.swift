@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+enum APIConstants {
+  static let host = "itunes.apple.com"
+  static let country = "DK"
+}
