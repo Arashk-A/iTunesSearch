@@ -10,10 +10,16 @@ import UIKit
 class SearchVC: UIViewController {
 
   @IBOutlet weak var tableView: UITableView!
+  @IBOutlet var dataService: SearchListDataService!
+  
+  var viewModel: SearchViewModel = SearchViewModel()
   
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view.
+    
+    tableView.delegate = dataService
+    tableView.dataSource = dataService
   }
 
 

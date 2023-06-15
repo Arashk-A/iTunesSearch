@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="V9E-BX-BQf">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
@@ -129,10 +129,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="Cdc-fV-G5P"/>
                     <connections>
+                        <outlet property="dataService" destination="6B5-AZ-oku" id="8JW-nZ-9bK"/>
                         <outlet property="tableView" destination="YV4-V8-P32" id="anG-CP-G8e"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AFL-Hv-gkt" sceneMemberID="firstResponder"/>
+                <customObject id="6B5-AZ-oku" customClass="SearchListDataService" customModule="ItunesSearch" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="936.64122137404581" y="-7.042253521126761"/>
         </scene>
