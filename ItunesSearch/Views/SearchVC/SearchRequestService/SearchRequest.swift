@@ -11,7 +11,7 @@ enum SearchRequest: RequestProtocol {
   case terms(text: String, country: String?)
   
   var path: String {
-    return "/seach"
+    return "/search"
   }
   
   var requestType: RequestType {
@@ -31,6 +31,8 @@ enum SearchRequest: RequestProtocol {
 extension SearchRequest {
   private func getSearchParams(_ term: String, country: String?) -> [String: String?] {
     var params: [String: String?] = [:]
+    
+    params["term"] = term
     
     if let country {
       params["country"] = country

@@ -30,7 +30,7 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T2G-jJ-gEU">
                                                     <rect key="frame" x="0.0" y="0.0" width="393" height="187"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Tv0-KU-i55">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Tv0-KU-i55" customClass="AsyncImageView" customModule="ItunesSearch" customModuleProvider="target">
                                                             <rect key="frame" x="12" y="12" width="110" height="110"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="110" id="qFK-Dy-kjL"/>
@@ -116,20 +116,31 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="6B5-AZ-oku" id="WOn-kN-DQP"/>
+                                    <outlet property="delegate" destination="6B5-AZ-oku" id="XNH-2T-oXY"/>
+                                </connections>
                             </tableView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="yRZ-Bn-Pog">
+                                <rect key="frame" x="186.66666666666666" y="416" width="20" height="20"/>
+                                <color key="color" systemColor="systemBlueColor"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="jmK-3c-AJ0"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="YV4-V8-P32" firstAttribute="leading" secondItem="jmK-3c-AJ0" secondAttribute="leading" id="0RP-MZ-2N0"/>
+                            <constraint firstItem="yRZ-Bn-Pog" firstAttribute="centerX" secondItem="xb7-Ac-bop" secondAttribute="centerX" id="2XB-qf-Uyb"/>
                             <constraint firstItem="YV4-V8-P32" firstAttribute="top" secondItem="jmK-3c-AJ0" secondAttribute="top" id="2rU-Nk-8LJ"/>
                             <constraint firstItem="YV4-V8-P32" firstAttribute="bottom" secondItem="jmK-3c-AJ0" secondAttribute="bottom" id="5ZY-sx-X9z"/>
                             <constraint firstItem="YV4-V8-P32" firstAttribute="trailing" secondItem="jmK-3c-AJ0" secondAttribute="trailing" id="F1d-t4-Ehj"/>
+                            <constraint firstItem="yRZ-Bn-Pog" firstAttribute="centerY" secondItem="xb7-Ac-bop" secondAttribute="centerY" id="lGS-kB-Bu7"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Cdc-fV-G5P"/>
                     <connections>
                         <outlet property="dataService" destination="6B5-AZ-oku" id="8JW-nZ-9bK"/>
+                        <outlet property="loadingView" destination="yRZ-Bn-Pog" id="MjH-gb-0WK"/>
                         <outlet property="tableView" destination="YV4-V8-P32" id="anG-CP-G8e"/>
                     </connections>
                 </viewController>
@@ -142,6 +153,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

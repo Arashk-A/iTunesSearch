@@ -40,19 +40,18 @@ extension SearchViewModel {
       return
     }
     
-    let country = APIConstants.country
     delegate?.laoding(true)
     Task {
       
       do {
-        let result = try await searchService.search(term, country: country)
+        let result = try await searchService.search(term, country: APIConstants.country)
         
         delegate?.laoding(false)
         searchResults = result
         delegate?.updatetableView()
           
       } catch (let error) {
-        print(error.localizedDescription)
+        debugPrint(error.localizedDescription)
         delegate?.laoding(false)
       }
     }

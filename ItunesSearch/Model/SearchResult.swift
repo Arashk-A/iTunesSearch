@@ -41,6 +41,9 @@ struct SearchItem: Codable {
     self.artworkUrl600 = artworkUrl600
   }
   
+  var releaseDateFormat: String? {
+    return releaseDate?.toDate()?.toStringDate()
+  }
   
 }
 
