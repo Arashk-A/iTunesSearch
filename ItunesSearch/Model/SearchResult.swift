@@ -44,3 +44,18 @@ struct SearchItem: Codable {
   
 }
 
+// MARK: - Handle Moc data
+extension SearchResult {
+  static let mock = searchItemsMock()
+  
+  private static func searchItemsMock() -> [SearchItem] {
+    guard let url = Bundle.main.url(forResource: "SearchMocData", withExtension: "json"),
+        let data = try? Data(contentsOf: url) else { return [] }
+    
+    let decoder = JSONDecoder()
+    
+    let mock = try? decoder.decode(SearchResult.self, from: data)
+    
+    return mock?.results ?? []
+  }
+}

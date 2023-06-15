@@ -12,7 +12,7 @@ class SearchVC: UIViewController {
   @IBOutlet weak var tableView: UITableView!
   @IBOutlet var dataService: SearchListDataService!
   
-  var viewModel: SearchViewModel = SearchViewModel()
+  var viewModel: SearchViewModel = SearchViewModel(searchService: SearchService(apiManager: APIManager()))
   
   override func viewDidLoad() {
     super.viewDidLoad()

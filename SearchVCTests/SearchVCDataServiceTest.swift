@@ -8,6 +8,7 @@
 import XCTest
 @testable import ItunesSearch
 
+@MainActor
 final class SearchVCDataServiceTest: XCTestCase {
   
   var dataService: SearchListDataService!
@@ -21,7 +22,7 @@ final class SearchVCDataServiceTest: XCTestCase {
     tableView.dataSource = dataService
     tableView.delegate = dataService
     
-    dataService.viewModel = SearchViewModel()
+    dataService.viewModel = SearchViewModel(searchService: SearchServiceMock())
   }
   
   func testDataService_ViewModelShouldNotBeNill() {
