@@ -41,7 +41,6 @@ final class SearchViewModelTest: XCTestCase {
   
   func testViewModels_SearchTermsShouldBeUpdated() {
     viewModel.searchTerms = "Rock"
-    
     XCTAssertFalse(viewModel.searchTerms.isEmpty)
   }
   
