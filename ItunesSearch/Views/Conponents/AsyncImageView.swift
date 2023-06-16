@@ -7,10 +7,9 @@
 
 import UIKit
 
-private let imageCache = NSCache<NSString, AnyObject>()
-
 @MainActor
 class AsyncImageView: UIImageView {
+  let cache = ImageCache.shared
   
   private let activityIndicator: UIActivityIndicatorView = {
     let indicator = UIActivityIndicatorView()
@@ -23,7 +22,7 @@ class AsyncImageView: UIImageView {
     image = nil
     activityIndicator.startAnimating()
 
-    if let image = imageCache.object(forKey: path as NSString) as? UIImage {
+    if let image = cache.getImage(forKey: path) {
 
       self.image = image
       activityIndicator.stopAnimating()
@@ -43,7 +42,7 @@ class AsyncImageView: UIImageView {
         activityIndicator.stopAnimating()
         
         if let image = UIImage(data: data) {
-          imageCache.setObject(image, forKey: path as NSString)
+          cache.setImage(image, forKey: path)
           self.image = image
         }
       } catch {
